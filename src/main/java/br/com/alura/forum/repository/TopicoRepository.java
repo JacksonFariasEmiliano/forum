@@ -14,6 +14,8 @@ public interface TopicoRepository extends JpaRepository<Topico, Long> {
     Optional<Topico> findByTitulo(String titulo);
 
 
+    //Query com dois parametros
+
 //  Caso eu não queira seguir o padrão jpa de nomeclatura, porem o jpa montar as query
 //  @Query("SELECT t FROM Topico t WHERE t.curso.nome = :nomeCuro)
 //  List<Topico> carregarPorNOmeDoCurso(@Param("nomeCurso")String nomeCurso);

@@ -2,11 +2,13 @@ package br.com.alura.forum.controller.form;
 
 import br.com.alura.forum.domain.Topico;
 import br.com.alura.forum.repository.TopicoRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+@CrossOrigin(origins = "*")
 public class AtualizacaoTopicoform {
 
     @NotNull

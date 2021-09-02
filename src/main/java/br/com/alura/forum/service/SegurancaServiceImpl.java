@@ -6,8 +6,11 @@ import br.com.alura.forum.repository.PerfilRepository;
 import br.com.alura.forum.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.transaction.Transactional;
 import java.util.HashSet;
 
+
+//TODO refazer com meu exemplpo
 public class SegurancaServiceImpl implements SegurancaService {
 
     @Autowired
@@ -15,9 +18,10 @@ public class SegurancaServiceImpl implements SegurancaService {
 
     @Autowired
     private PerfilRepository perfilRepository;
-    private String nomeUsuario;
+
 
     @Override
+    @Transactional
     public Usuario novoUsuario(String novoUsuario, String senha, String perfil){
         Perfil perf = perfilRepository.findByNome(perfil);
         if (perf == null){
@@ -28,9 +32,8 @@ public class SegurancaServiceImpl implements SegurancaService {
         }
 
         Usuario usuario = new Usuario();
-        usuario.setNome(nomeUsuario);
+        usuario.setNome(novoUsuario);
         usuario.setSenha(senha);
-        usuario.setPerfies(new HashSet<Perfil>());
         usuario.getPerfies().add(perf);
 
         usuarioRepository.save(usuario);

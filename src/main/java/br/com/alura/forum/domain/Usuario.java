@@ -4,10 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 public class Usuario implements UserDetails {
@@ -27,7 +24,7 @@ public class Usuario implements UserDetails {
 	@JoinTable(name = "usuario_perfil",
 			joinColumns = {@JoinColumn(name = "usuario_id", referencedColumnName="id")},
 			inverseJoinColumns = {@JoinColumn(name = "perfil_id",referencedColumnName="id")})
-	private Set<Perfil> perfius;
+	private Set<Perfil> perfius = new HashSet<>();
 
 	public Set<Perfil> getPerfies() {
 		return perfius;
