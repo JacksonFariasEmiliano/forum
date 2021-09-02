@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
 
+
 @Entity
 public class Perfil implements GrantedAuthority {
 
@@ -21,6 +22,7 @@ public class Perfil implements GrantedAuthority {
 
     @ManyToMany
     private List<Usuario> usuarioList;
+
 
 
     public Long getId() {
